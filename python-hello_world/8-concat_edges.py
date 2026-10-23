@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-str1 = "Holberton"
-str2 = "School"
-print(f"{str1[:3]}{str2[-2:]} {str1[3:]} programming with Python")
+str = "Python is an interpreted, interactive, object-oriented programming language that combines remarkable power with clear syntax"
+str = str[39:67] + str[107:112] + str[:6]
+print(str)
