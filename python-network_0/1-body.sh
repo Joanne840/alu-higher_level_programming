@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-# Send a GET request and display body only if HTTP status code is 200
-status=$(curl -s -L -o /tmp/curl_body.txt -w "%{http_code}" "$1")
-if [ "$status" -eq 200 ]; then
-    cat /tmp/curl_body.txt
-fi
-rm -f /tmp/curl_body.txt
+#!/bin/bash
+# Display the body of a 200 status code GET response
+curl -s -L -w "\n%{http_code}" "$1" | awk 'NR>1{print prev} {prev=$0} END{if ($0=="200") printf "%s", prev}'
