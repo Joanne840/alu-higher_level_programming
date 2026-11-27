@@ -7,17 +7,17 @@ class Square(Rectangle):
     """Represents a square as a specialized Rectangle."""
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialize a Square instance."""
+        """Initialize a new Square instance."""
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
-        """Get the size of the square."""
+        """Retrieve the size of the square."""
         return self.width
 
     @size.setter
     def size(self, value):
-        """Set and validate size on width and height."""
+        """Validate and set size on both width and height."""
         self.width = value
         self.height = value
 
@@ -28,7 +28,7 @@ class Square(Rectangle):
         )
 
     def update(self, *args, **kwargs):
-        """Update attributes using positional args or keyword kwargs."""
+        """Update square attributes from positional args or keyword args."""
         attrs = ["id", "size", "x", "y"]
         if args and len(args) > 0:
             for idx, val in enumerate(args):
