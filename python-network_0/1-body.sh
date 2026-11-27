@@ -1,3 +1,3 @@
 #!/bin/bash
-# Display the body of a 200 status code GET response
-curl -s -L -w "\n%{http_code}" "$1" | awk 'NR>1{print prev} {prev=$0} END{if ($0=="200") printf "%s", prev}'
+# Display the body of a 200 status code GET response after following redirects
+python3 -c 'import sys, urllib.request; r = urllib.request.urlopen(sys.argv[1]); sys.stdout.buffer.write(r.read()) if r.status == 200 else None' "$1"
